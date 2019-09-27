@@ -1,16 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './Routing/app-routing.module';
 import { AppComponent } from './app.component';
+import { HomePageComponent } from './Routed/home-page/home-page.component';
+import { ProfilePageComponent } from './Routed/profile-page/profile-page.component';
+import { LoginPageComponent } from './Routed/login-page/login-page.component';
+import { RegisterPageComponent } from './Routed/register-page/register-page.component';
+import { TopMenuComponent } from './components/top-menu/top-menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomePageComponent,
+    ProfilePageComponent,
+    LoginPageComponent,
+    RegisterPageComponent,
+    TopMenuComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
