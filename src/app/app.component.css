@@ -26,12 +26,12 @@
 
 
 .border-right {
-    border-right: calc(0.01em + 0.03vmax) solid rgba(0, 0, 0, 0.3);
+    border-right: calc(0.03em + 0.03vmax) solid rgba(0, 0, 0, 0.3);
 
 }
 
 .border-bottom {
-    border-bottom: calc(0.01em + 0.03vmax) solid rgba(0, 0, 0, 0.3);
+    border-bottom: calc(0.03em + 0.03vmax) solid rgba(0, 0, 0, 0.3);
 }
 
 

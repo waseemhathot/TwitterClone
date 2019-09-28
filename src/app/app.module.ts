@@ -8,7 +8,7 @@ import { HomePageComponent } from './Routed/home-page/home-page.component';
 import { ProfilePageComponent } from './Routed/profile-page/profile-page.component';
 import { LoginPageComponent } from './Routed/login-page/login-page.component';
 import { RegisterPageComponent } from './Routed/register-page/register-page.component';
-import { TopMenuComponent } from './components/top-menu/top-menu.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { HeaderComponent } from './components/header/header.component';
     ProfilePageComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    TopMenuComponent,
+    MenuComponent,
     HeaderComponent,
   ],
   imports: [

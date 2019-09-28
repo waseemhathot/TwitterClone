@@ -3,11 +3,11 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faHome, faSignInAlt, faSignOutAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-    selector: 'app-top-menu',
-    templateUrl: './top-menu.component.html',
-    styleUrls: ['./top-menu.component.css']
+    selector: 'app-menu',
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.css']
 })
-export class TopMenuComponent implements OnInit {
+export class MenuComponent implements OnInit {
     faTwitter = faTwitter;
     faHome = faHome;
     faSignOut = faSignOutAlt;
