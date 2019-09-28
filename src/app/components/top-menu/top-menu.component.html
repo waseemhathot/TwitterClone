@@ -1,11 +1,19 @@
 <div class="menu">
-    <div class="menu__home">
-        <fa-icon class="home__twitter-icon" [icon]="faTwitter"></fa-icon>
-        <a routerLink="/home" class="menu__link">Home</a>
-    </div>
-
     <div class="menu__options">
-        <div class="menu__link options__option border-right">Login</div>
-        <div class="menu__link options__option">Register</div>
+        <a routerLink="/home" class="menu__link options__option">
+            <fa-icon class="twitter-icon" [icon]="faTwitter"></fa-icon>
+        </a>
+
+        <a routerLink="/home" class="menu__link options__option">
+            <fa-icon class="twitter-icon" [icon]="faHome"></fa-icon>
+        </a>
+
+        <a routerLink="/login" class="menu__link options__option border-right">
+            <fa-icon class="twitter-icon" [icon]="faSignIn"></fa-icon>
+        </a>
+
+        <a routerLink="/register" class="menu__link options__option">
+            <fa-icon class="twitter-icon" [icon]="faRegister"></fa-icon>
+        </a>
     </div>
 </div>

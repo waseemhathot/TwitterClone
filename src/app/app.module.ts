@@ -9,6 +9,7 @@ import { ProfilePageComponent } from './Routed/profile-page/profile-page.compone
 import { LoginPageComponent } from './Routed/login-page/login-page.component';
 import { RegisterPageComponent } from './Routed/register-page/register-page.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TopMenuComponent } from './components/top-menu/top-menu.component';
     LoginPageComponent,
     RegisterPageComponent,
     TopMenuComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
