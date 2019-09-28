@@ -2,19 +2,48 @@
 .menu {
     width: 100%;
     height: 100%;
-    padding: calc(0.1em + 0.2vmax);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: calc(0.2em + 0.2vmax);
 }
 
 .menu__options {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .options__option {
     padding: calc(0.2em + 0.2vmax);
     font-size: calc(3em + 0.2vmax);
-    margin: calc(0.3em + 0.2vmax);
+}
+
+.menu__tweet-button {
+    padding: calc(0.8em + 0.2vmax) calc(5em + 0.2vmax);
+    margin-top: calc(0.7em + 0.2vmax);
+    background-color: var(--twitter-blue-color);
+    font-size: calc(0.8em + 0.2vmax);
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-radius: 4em;
+    color: white;
+}
+
+.menu__tweet-icon {
+    display: none;
+    margin-top: calc(0.7em + 0.2vmax);
+    color: white;
+    background-color: var(--twitter-blue-color);
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: calc(1em + 0.2vmax);
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+
 }
 
 .menu__link {
@@ -23,16 +52,46 @@
     color: black;
     font-weight: bold;
     font-size: calc(1em + 0.2vmax);
+    padding: calc(0.5em + 0.2vmax);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu__link:hover {
+    background-color: rgba(56, 161, 243, 0.1);
+    border-radius: 2em;
+}
+
+.link__text {
+    margin-left: calc(1em + 0.2vmax);
 }
 
 .twitter-icon{
-    color: #38A1F3;
-    font-size: calc(1.5em + 0.2vmax);
-    border-radius: 50%;
-    padding: calc(0.2em + 0.2vmax);
+    color: var(--twitter-blue-color);
+    font-size: calc(1.3em + 0.2vmax);
     text-align: center;
 }
 
-.twitter-icon:hover {
-    background-color: rgba(56, 161, 243, 0.1);
+.link-icon {
+    font-size: calc(1.3em + 0.2vmax);
+    text-align: center;
+}
+
+.active-link {
+    color: var(--twitter-blue-color);
+}
+@media (max-width: 500px){
+    .link__text{
+        display: none;
+    }
+
+    .menu__tweet-button {
+        display: none;
+    }
+
+    .menu__tweet-icon {
+        display: initial;
+    }
 }

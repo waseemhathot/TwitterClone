@@ -1,19 +1,35 @@
 <div class="menu">
     <div class="menu__options">
-        <a routerLink="/home" class="menu__link options__option">
+        <a routerLink="/home" class="menu__link options__option" routerLinkActive="active-link">
             <fa-icon class="twitter-icon" [icon]="faTwitter"></fa-icon>
         </a>
 
-        <a routerLink="/home" class="menu__link options__option">
-            <fa-icon class="twitter-icon" [icon]="faHome"></fa-icon>
+        <a routerLink="/home" class="menu__link options__option" routerLinkActive="active-link">
+            <fa-icon class="link-icon" [icon]="faHome"></fa-icon>
+            <div class="link__text">Home</div>
         </a>
 
-        <a routerLink="/login" class="menu__link options__option border-right">
-            <fa-icon class="twitter-icon" [icon]="faSignIn"></fa-icon>
+        <a *ngIf="!(isUserLoggedIn$ | async)" routerLink="/login" class="menu__link options__option border-right"
+            routerLinkActive="active-link">
+            <fa-icon class="link-icon" [icon]="faSignIn"></fa-icon>
+            <div class="link__text">Sign In</div>
         </a>
 
-        <a routerLink="/register" class="menu__link options__option">
-            <fa-icon class="twitter-icon" [icon]="faRegister"></fa-icon>
+        <a *ngIf="!(isUserLoggedIn$ | async)" routerLink="/register" class="menu__link options__option"
+            routerLinkActive="active-link">
+            <fa-icon class="link-icon" [icon]="faRegister"></fa-icon>
+            <div class="link__text">Register</div>
         </a>
+
+        <a *ngIf="isUserLoggedIn$ | async" class="menu__link options__option">
+            <fa-icon class="link-icon" [icon]="faSignOut"></fa-icon>
+            <div class="link__text">Sign Out</div>
+        </a>
+
+        <button class="menu__tweet-button" (click)="openTweetWindow()">Tweet</button>
+
+        <button class="menu__tweet-icon">
+            <fa-icon  [icon]="faFeather"></fa-icon>
+        </button>
     </div>
 </div>

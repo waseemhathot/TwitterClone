@@ -362,4 +362,9 @@ textarea {
 
 * {
     box-sizing: border-box;
+    font-family: "Segoe UI";
+}
+
+:root {
+    --twitter-blue-color: #38A1F3;
 }
