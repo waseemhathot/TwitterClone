@@ -6,6 +6,7 @@
     flex-direction: column;
     align-items: center;
     padding: calc(0.2em + 0.2vmax);
+    background-color: var(--app-background-color);
 }
 
 .menu__options {
@@ -62,6 +63,7 @@
 .menu__link:hover {
     background-color: rgba(56, 161, 243, 0.1);
     border-radius: 2em;
+    color: var(--twitter-blue-color);
 }
 
 .link__text {

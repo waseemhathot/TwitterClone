@@ -2,23 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginModule } from 'src/app/Login/login.module';
+import { SharedModule } from 'src/app/Shared/shared.module';
+import { RoutedModule } from 'src/app/Routed/routed.module';
 
 import { AppRoutingModule } from './Routing/app-routing.module';
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './Routed/home-page/home-page.component';
-import { ProfilePageComponent } from './Routed/profile-page/profile-page.component';
-import { LoginPageComponent } from './Routed/login-page/login-page.component';
-import { RegisterPageComponent } from './Routed/register-page/register-page.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
-    ProfilePageComponent,
-    LoginPageComponent,
-    RegisterPageComponent,
     MenuComponent,
     HeaderComponent,
   ],
@@ -26,7 +20,9 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    LoginModule
+    LoginModule,
+    SharedModule,
+    RoutedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

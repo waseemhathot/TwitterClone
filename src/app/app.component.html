@@ -1,4 +1,3 @@
-
 <div class='container'>
     <app-menu class="container__menu border-right"></app-menu>
 
@@ -6,11 +5,9 @@
         <a routerLink="/home" class="header__link" routerLinkActive="active-link">Home</a>
         <a routerLink="/login" class="header__link" routerLinkActive="active-link">Login</a>
         <a routerLink="/register" class="header__link" routerLinkActive="active-link">Register</a>
-
-
     </app-header>
     
-    <router-outlet class="container__content"></router-outlet>
+    <div class="container__content">
+        <router-outlet></router-outlet>
+    </div>
 </div>
-
-

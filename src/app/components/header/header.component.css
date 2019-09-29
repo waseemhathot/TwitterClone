@@ -10,4 +10,5 @@
     font-weight: bold;
     padding: calc(0.5em + 0.2vmax);
     font-family: "Segoe UI";
+    background-color: var(--app-background-color);
 }
