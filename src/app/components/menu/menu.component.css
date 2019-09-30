@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: center;
     padding: calc(0.2em + 0.2vmax);
-    background-color: var(--app-background-color);
+    /* background-color: var(--app-background-color); */
 }
 
 .menu__options {
