@@ -61,6 +61,17 @@ input[type=search]::-webkit-search-results-decoration {
     -moz-appearance: none;
 }
 
+@-webkit-keyframes autofill {
+    to {
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
 input[type=search] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -368,6 +379,7 @@ textarea {
 :root {
     --twitter-blue-color: #38A1F3;
     --app-background-color: white;
+    --form-error-color: rgb(224, 36, 94);
 }
 
 html {

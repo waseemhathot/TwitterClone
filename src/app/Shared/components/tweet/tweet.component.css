@@ -6,6 +6,8 @@
 }
 
 .content__user-image {
+    min-width: calc(3em + 0.2vmax);
+    min-height: calc(3em + 0.2vmax);
     width: calc(3em + 0.2vmax);
     height: calc(3em + 0.2vmax);
     border-radius: 50%;

@@ -1,11 +1,9 @@
 <div class="content">
-    <div>
-        <img class="content__user-image" src='https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    <img class="content__user-image" [src]='user.image'
             alt='failed to load' />
-    </div>
     <div class="content__user-tweet">
-        <div class="user-tweet__username">Waseem hathot</div>
-        <div class="user-tweet__text">This is my first tweet and i am excited!
-        </div>
+        
+        <div class="user-tweet__username">{{ user.name }}</div>
+        <div class="user-tweet__text">{{ tweet.content }}</div>
     </div>
 </div>

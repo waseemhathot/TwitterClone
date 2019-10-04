@@ -4,6 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginModule } from 'src/app/Login/login.module';
 import { SharedModule } from 'src/app/Shared/shared.module';
 import { RoutedModule } from 'src/app/Routed/routed.module';
+import { CoreModule } from 'src/app/Core/core.module';
 
 import { AppRoutingModule } from './Routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { HeaderComponent } from './components/header/header.component';
     LoginModule,
     SharedModule,
     RoutedModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

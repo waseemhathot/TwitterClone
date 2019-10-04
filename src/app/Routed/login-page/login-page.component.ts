@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-login-page',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+  faTwitter = faTwitter;
 
   constructor() { }
 

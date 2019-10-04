@@ -16,7 +16,6 @@ export class TweetListComponent implements OnInit {
     }
 
     trackById(index: number, item: ITweet) {
-        return item.tweetId;
+        return item.id;
     }
-
 }

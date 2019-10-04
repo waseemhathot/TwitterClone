@@ -32,6 +32,10 @@
     color: white;
 }
 
+.menu__tweet-button:hover {
+    background-color: rgba(56, 161, 243, 0.8);
+}
+
 .menu__tweet-icon {
     display: none;
     margin-top: calc(0.7em + 0.2vmax);
@@ -84,6 +88,7 @@
 .active-link {
     color: var(--twitter-blue-color);
 }
+
 @media (max-width: 500px){
     .link__text{
         display: none;
