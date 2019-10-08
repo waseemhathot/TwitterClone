@@ -1,1 +1,47 @@
-<p>register-form works!</p>
+<form class="register-form" #registerForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="register-form__user-input">
+        <label for="email">Email</label>
+        <input name="email" id="email" type="email" #emailInput="ngModel" [(ngModel)]="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,5}$" required />
+    </div>
+
+    <div class="register-form__error-message">
+        <span [hidden]="!emailInput.errors?.pattern">Please enter a valid
+            email</span>
+        <span [hidden]="!emailInput.errors?.required">Email is required</span>
+    </div>
+
+    <div class="register-form__user-input">
+        <label for="username">username</label>
+        <input name="username" id="username" type="text" #usernameInput="ngModel" [(ngModel)]="username"
+            pattern="[a-z0-9._%+-]+$" required />
+    </div>
+
+    <div class="register-form__error-message">
+        <span [hidden]="!usernameInput.errors?.pattern">Please enter a valid
+            username</span>
+        <span [hidden]="!usernameInput.errors?.required">Username is required</span>
+    </div>
+
+    <div class="register-form__user-input">
+        <label for="avatarUrl">avatarUrl</label>
+        <input name="avatarUrl" id="avatarUrl" type="text" #avatarUrlInput="ngModel" [(ngModel)]="avatarUrl"
+            pattern="(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$"/>
+    </div>
+
+    <div class="register-form__error-message">
+        <span [hidden]="!avatarUrlInput.errors?.pattern">Please enter a valid
+            avatarUrl</span>
+    </div>
+
+    <div class="register-form__user-input">
+        <label for="password">Password</label>
+        <input name="password" id="password" type="password" #passwordInput="ngModel" [(ngModel)]="password" required />
+    </div>
+
+    <div class="register-form__error-message">
+        <span [hidden]="!passwordInput.errors?.required">Password is required</span>
+    </div>
+
+    <button [disabled]="!registerForm.valid" class="register-form__submit-button">Register</button>
+</form>

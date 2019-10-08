@@ -9,22 +9,26 @@
 .content__login { 
     width: 80%;
     height: 70%;
+    margin: calc(0.1em + 0.2vmax);
 }
 
 .content__description {
     text-align: center;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .description__text {
     font-size: calc(1.5em + 0.2vmax);
-    width: 100%;
+    text-align: left;
 }
 
 .description__icon {
     color: var(--twitter-blue-color);
-    font-size: calc(5em + 0.2vmax);
-    text-align: left;
-    margin: calc(0.4em + 0.2vmax);
+    font-size: calc(3.5em + 0.2vmax);
+    text-align: center;
+    margin: calc(0.2em + 0.2vmax);
     width: 100%;
 }

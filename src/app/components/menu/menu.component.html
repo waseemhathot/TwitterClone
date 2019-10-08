@@ -22,13 +22,18 @@
         </a>
 
         <a *ngIf="isUserLoggedIn$ | async" class="menu__link options__option">
+            <fa-icon class="link-icon" [icon]="faUser"></fa-icon>
+            <div class="link__text">Profile</div>
+        </a>
+
+        <a *ngIf="isUserLoggedIn$ | async" (click)="logout()" class="menu__link options__option">
             <fa-icon class="link-icon" [icon]="faSignOut"></fa-icon>
             <div class="link__text">Sign Out</div>
         </a>
 
-        <button class="menu__tweet-button" (click)="openTweetWindow()">Tweet</button>
+        <button [disabled]="!(isUserLoggedIn$ | async)" class="menu__tweet-button button" (click)="openTweetWindow()">Tweet</button>
 
-        <button class="menu__tweet-icon" (click)="openTweetWindow()">
+        <button [disabled]="!(isUserLoggedIn$ | async)" class="menu__tweet-icon button" (click)="openTweetWindow()">
             <fa-icon  [icon]="faFeather"></fa-icon>
         </button>
     </div>

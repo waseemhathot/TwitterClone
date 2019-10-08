@@ -13,7 +13,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: rgba(56, 161, 243, 0.1);
+    /* background-color: rgba(56, 161, 243, 0.1); */
+    background-color: rgba(0, 0, 0, 0.05);
     color: var(--twitter-blue-color);
     width: 70%;
 }
@@ -25,7 +26,6 @@
     background-color: transparent;
     width: 100%;
     padding: calc(0.2em + 0.2vmax);
-    margin-top: calc(0.2em + 0.2vmax);
     font-size: calc(0.9em + 0.2vmax);
 }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserManagerService } from 'src/app/Login/services/user-manager.service';
 
 @Component({
   selector: 'app-register-form',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit {
+  email: string;
+  username: string;
+  avatarUrl = '';
+  password: string;
 
-  constructor() { }
+  constructor(private userManagerService: UserManagerService) { }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    console.log(this.email, this.username, this.avatarUrl, this.password);
+    this.userManagerService.register();
+  }
 }
