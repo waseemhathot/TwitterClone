@@ -12,9 +12,9 @@ export class TweetComponent implements OnInit {
 
     @Input() tweet: ITweet;
     user: IUser = {
-        image: '',
+        avatarUrl: '',
         id: '',
-        name: '',
+        userHandle: '',
     };
 
     constructor(private dataRetrievalService: DataRetrievalService) { }
@@ -22,10 +22,9 @@ export class TweetComponent implements OnInit {
     ngOnInit() {
         this.dataRetrievalService.getUserInfoById(this.tweet.userId)
             .then(data => {
-                console.log(data.image);
-                this.user.image = data.image;
+                this.user.avatarUrl = data.avatarUrl;
                 this.user.id = data.id;
-                this.user.name = data.name;
+                this.user.userHandle = data.userHandle;
             });
     }
 

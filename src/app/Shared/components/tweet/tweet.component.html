@@ -1,9 +1,9 @@
 <div class="content">
-    <img class="content__user-image" [src]='user.image'
+    <img class="content__user-image" [src]='user.avatarUrl'
             alt='failed to load' />
     <div class="content__user-tweet">
         
-        <div class="user-tweet__username">{{ user.name }}</div>
+        <div class="user-tweet__username">{{ user.userHandle }}</div>
         <div class="user-tweet__text">{{ tweet.content }}</div>
     </div>
 </div>

@@ -13,6 +13,7 @@ import { DataRetrievalService } from './services/data-retrieval.service';
     providers: [
         DataRetrievalService,
     ],
+    exports: []
 })
 export class CoreModule {
     constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

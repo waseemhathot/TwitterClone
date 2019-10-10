@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserManagerService } from 'src/app/Login/services/user-manager.service';
+import { UserCredentials } from '../../interfaces/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -12,13 +14,20 @@ export class RegisterFormComponent implements OnInit {
   avatarUrl = '';
   password: string;
 
-  constructor(private userManagerService: UserManagerService) { }
+  constructor(private userManagerService: UserManagerService, private router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    console.log(this.email, this.username, this.avatarUrl, this.password);
-    this.userManagerService.register();
+    this.userManagerService.register({
+      email: this.email,
+      userHandle: this.username,
+      avatarUrl: this.avatarUrl,
+      password: this.password
+    })
+    .then(data => {
+      this.router.navigate(['home']);
+    });
   }
 }

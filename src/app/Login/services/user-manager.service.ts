@@ -4,6 +4,7 @@ import { map, shareReplay, startWith } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { UserData } from 'src/app/Login/interfaces/user-data';
 import { environment } from 'src/environments/environment';
+import { UserCredentials } from '../interfaces/user';
 
 enum UserStatus {
     LoggedIn = 'LoggedIn',
@@ -40,7 +41,10 @@ export class UserManagerService {
         this._userStatus.next(UserStatus.LoggedOut);
     }
 
-    register() {
-
+    register(userCredentials: UserCredentials): Promise<number | void> {
+        return this.http.post(environment.apiUrl + '/auth/register', userCredentials).toPromise()
+        .then(data => {
+            this.login(userCredentials.email, userCredentials.password);
+        });
     }
 }

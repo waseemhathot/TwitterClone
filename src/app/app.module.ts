@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginModule } from 'src/app/Login/login.module';
 import { SharedModule } from 'src/app/Shared/shared.module';
 import { RoutedModule } from 'src/app/Routed/routed.module';
@@ -20,7 +19,6 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule,
     LoginModule,
     SharedModule,
     RoutedModule,

@@ -1,0 +1,9 @@
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+.content__text-box {
+    width: 100%;
+    border-bottom: calc(0.8em + 0.03vmax) solid rgba(0, 0, 0, 0.1);
+}
