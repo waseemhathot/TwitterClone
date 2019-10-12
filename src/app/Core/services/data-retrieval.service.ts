@@ -45,13 +45,4 @@ export class DataRetrievalService {
     async postTweet(text: string): Promise<any> {
         return await this.http.post(environment.apiUrl + '/tweets', { text }).toPromise().catch(err => console.log(err));
     }
-
-    // async getUserInfoById(id: string): Promise<IUser> {
-    //     return await this.http.get(apiUrl + '/members/' + id)
-    //         .pipe(
-    //             map(json => json as IUser),
-    //         )
-    //         .toPromise()
-    //         .catch(error => Promise.reject(error));
-    // }
 }

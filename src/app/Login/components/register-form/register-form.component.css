@@ -26,7 +26,6 @@
     background-color: transparent;
     width: 100%;
     padding: calc(0.2em + 0.2vmax);
-    margin-top: calc(0.2em + 0.2vmax);
     font-size: calc(0.9em + 0.2vmax);
 }
 

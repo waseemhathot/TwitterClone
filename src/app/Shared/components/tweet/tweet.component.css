@@ -49,6 +49,25 @@
  
 }
 
+.user-tweet__operation-bar {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: calc(1em + 0.2vmax);
+}
+
+.operation-bar__full-star {
+    color: var(--twitter-blue-color);
+}
+
+.pointer-cursor {
+    cursor: pointer;
+    margin: calc(1em + 0.2vmax);
+    margin-top: calc(0.1em + 0.2vmax);
+}
+
 
 .break-words {
     overflow-wrap: break-word;

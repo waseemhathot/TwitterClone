@@ -40,7 +40,7 @@ export class UserManagerService {
     }
 
     logout() {
-        localStorage.setItem('userData', '');
+        localStorage.setItem('userData', '{}');
         this._userStatus.next(UserStatus.LoggedOut);
     }
 

@@ -14,9 +14,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
     constructor(private dataRetrievalService: DataRetrievalService) {
         this.tweetListSub = this.dataRetrievalService.tweetList$.subscribe(data => {
-            data.sort((a, b) => {
-                return new Date(b.postDate).getTime() - new Date(a.postDate).getTime();
-            });
             this.tweetList = data;
         });
     }
