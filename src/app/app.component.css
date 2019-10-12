@@ -3,23 +3,21 @@
     min-height: 100vh;
     display: grid;
     grid-template-areas: 'menu header' 'menu content';
-    grid-template-columns: 23vw 76vw;
+    grid-template-columns: 3fr 9fr;
     grid-template-rows: 10vh 9fr;
 }
 
 .container__content{ 
     grid-area: content;
-    width: 77vw;
-    max-width: 100%;
+    /* overflow: hidden; */
+    min-width: 0;
 }
 
 .container__menu { 
     grid-area: menu;
     position: sticky;
     top: 0;
-    height: 100vh; 
-    width: 23vw ;
-    max-width: 100%;
+    max-height: 100vh;
 }
 
 .container__header {
@@ -27,8 +25,6 @@
     position: sticky;
     top: 0;
     height: 10vh;
-    width: 76vw;
-    max-width: 100%;
 }
 
 .header__link {

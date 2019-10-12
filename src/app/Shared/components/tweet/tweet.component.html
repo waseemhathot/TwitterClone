@@ -1,9 +1,16 @@
 <div class="content">
-    <img class="content__user-image" [src]='user.avatarUrl'
+    <!-- <img class="content__user-image" [src]='user.avatarUrl'
+            alt='failed to load' /> -->
+    
+    <div class="content__user-avatar">
+        <fa-icon *ngIf='showDefaultAvatar' class="link-icon" [icon]="faUser"></fa-icon>
+
+        <img *ngIf='!showDefaultAvatar'  [src]='tweet.avatarUrl'
             alt='failed to load' />
+    </div>
+
     <div class="content__user-tweet">
-        
-        <div class="user-tweet__username">{{ user.userHandle }}</div>
-        <div class="user-tweet__text">{{ tweet.content }}</div>
+        <div class="user-tweet__username">{{ tweet.userHandle }}</div>
+        <div class="user-tweet__text break-words">{{ tweet.text }}</div>
     </div>
 </div>

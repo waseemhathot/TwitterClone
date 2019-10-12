@@ -4,6 +4,8 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 
 import { DataRetrievalService } from './services/data-retrieval.service';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from 'src/app/Core/interceptors/token-interceptor';
 
 @NgModule({
     imports: [
@@ -12,6 +14,7 @@ import { DataRetrievalService } from './services/data-retrieval.service';
     ],
     providers: [
         DataRetrievalService,
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     ],
     exports: []
 })

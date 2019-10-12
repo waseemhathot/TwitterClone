@@ -14,7 +14,7 @@ enum UserStatus {
 @Injectable()
 export class UserManagerService {
 
-    private _userStatus: Subject<UserStatus> = new Subject();
+    private _userStatus: Subject<UserStatus> = new Subject<UserStatus>();
     public readonly isUserLoggedIn$: Observable<boolean> = this._userStatus.asObservable().pipe(
         startWith(UserStatus.LoggedOut),
         map(value => value === UserStatus.LoggedIn),
@@ -33,7 +33,10 @@ export class UserManagerService {
             this._userStatus.next(UserStatus.LoggedIn);
             return true;
         })
-        .catch(() => false);
+        .catch((err) => {
+            console.dir(err);
+            return false;
+        });
     }
 
     logout() {

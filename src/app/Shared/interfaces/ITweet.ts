@@ -1,9 +1,10 @@
 
 export interface ITweet {
-    userName: string;
-    content: string;
-    date: string;
+    userHandle: string;
+    text: string;
+    postDate: string;
     stars: number;
     id: string;
     userId: string;
+    avatarUrl: string;
 }
