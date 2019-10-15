@@ -37,4 +37,9 @@ export class TweetComponent implements OnInit {
         this.tweetStarred = !this.tweetStarred;
         // this.dataRetrievalService.toggleStar();
     }
+
+    async deleteTweet(): Promise<void> {
+        await this.dataRetrievalService.deleteTweet(this.tweet.id);
+        this.dataRetrievalService.updateTweetsFromServer();
+    }
 }

@@ -4,7 +4,6 @@
 
     <div class="content__user-avatar">
         <fa-icon *ngIf='showDefaultAvatar' class="link-icon" [icon]="faUser"></fa-icon>
-
         <img *ngIf='!showDefaultAvatar' [src]='tweet.avatarUrl' alt='failed to load' />
     </div>
 
@@ -24,7 +23,7 @@
                 [icon]="faFullStar"></fa-icon>
 
             <fa-icon class="operation-bar__reply pointer-cursor" [icon]="faReply"></fa-icon>
-            <fa-icon class="operation-bar__trash pointer-cursor" [icon]="faTrash"></fa-icon>
+            <fa-icon (click)="deleteTweet()" class="operation-bar__trash pointer-cursor" [icon]="faTrash"></fa-icon>
         </div>
     </div>
 

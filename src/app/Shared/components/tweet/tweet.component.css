@@ -39,11 +39,12 @@
 }
 
 .user-tweet__user-info {
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .user-info__username {
@@ -55,19 +56,20 @@
 .user-info__user-handle {
     color: rgb(101, 119, 134);
     margin: calc(0.1em + 0.1vmax);
+    font-size: calc(0.8em + 0.2vmax);
 }
 
 .user-tweet__text {
     margin-top: calc(0.2em + 0.2vmax);
-    width: 70%;
+    width: 100%;
  
 }
 
 .user-tweet__operation-bar {
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     margin-top: calc(1em + 0.2vmax);
 }
