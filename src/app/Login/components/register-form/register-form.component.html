@@ -14,7 +14,7 @@
     <div class="register-form__user-input">
         <label for="username">username</label>
         <input name="username" id="username" type="text" #usernameInput="ngModel" [(ngModel)]="username"
-            pattern="[a-z0-9._%+-]+$" required />
+            pattern="[A-Za-z0-9]{5,14}$" required />
     </div>
 
     <div class="register-form__error-message">

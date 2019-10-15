@@ -12,19 +12,15 @@ export class LoginFormComponent implements OnInit {
     email: string;
     password: string;
 
-    constructor(private userManagerService: UserManagerService, private router: Router) { }
+    constructor(private userManagerService: UserManagerService) { }
 
     ngOnInit() {
     }
 
     async onSubmit() {
         this.userManagerService.login(this.email, this.password)
-            .then(data => {
-                if (data) {
-                    this.router.navigate(['home']);
-                } else {
-                    alert('Login failed, please try again');
-                }
-            });
+        .catch(_ => {
+            alert('Login failed, please try again');
+        });
     }
 }

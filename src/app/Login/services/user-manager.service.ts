@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserData } from 'src/app/Login/interfaces/user-data';
 import { environment } from 'src/environments/environment';
 import { UserCredentials } from '../interfaces/user';
+import { Router } from '@angular/router';
 
 enum UserStatus {
     LoggedIn = 'LoggedIn',
@@ -21,9 +22,9 @@ export class UserManagerService {
         shareReplay(1),
     );
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
 
-    login(userEmail: string, userPassword: string): Promise<boolean> {
+    login(userEmail: string, userPassword: string): Promise<void> {
         return this.http.post(environment.apiUrl + '/auth/login', { email: userEmail, password: userPassword }).pipe(
             map(value => value as UserData),
         )
@@ -31,11 +32,7 @@ export class UserManagerService {
         .then(data => {
             localStorage.setItem('userData', JSON.stringify(data));
             this._userStatus.next(UserStatus.LoggedIn);
-            return true;
-        })
-        .catch((err) => {
-            console.dir(err);
-            return false;
+            this.router.navigate(['home']);
         });
     }
 
@@ -45,9 +42,13 @@ export class UserManagerService {
     }
 
     register(userCredentials: UserCredentials): Promise<number | void> {
-        return this.http.post(environment.apiUrl + '/auth/register', userCredentials).toPromise()
+        return this.http.post(environment.apiUrl + '/auth/register', userCredentials)
+        .toPromise()
         .then(data => {
-            this.login(userCredentials.email, userCredentials.password);
+            this._userStatus.next(UserStatus.LoggedIn);
+            localStorage.setItem('userData', JSON.stringify(data));
+            this.router.navigate(['home']);
         });
+
     }
 }

@@ -9,15 +9,19 @@
     </div>
 
     <div class="content__user-tweet">
-        <div class="user-tweet__username">{{ tweet.userHandle }}</div>
+        <div class="user-tweet__user-info">
+            <div class="user-info__username">{{ tweet.userHandle }} </div>
+            <div class="user-info__user-handle">@{{ tweet.userHandle }} &#183; {{ dateDiff }}</div>
+        </div>
+
         <div class="user-tweet__text break-words">{{ tweet.text }}</div>
 
         <div class="user-tweet__operation-bar">
             <fa-icon [hidden]="tweetStarred" (click)="toggleStar()" class="operation-bar__empty-star pointer-cursor"
                 [icon]="faEmptyStar"></fa-icon>
 
-            <fa-icon [hidden]="!tweetStarred" (click)="toggleStar()" class="operation-bar__full-star pointer-cursor" 
-            [icon]="faFullStar"></fa-icon>
+            <fa-icon [hidden]="!tweetStarred" (click)="toggleStar()" class="operation-bar__full-star pointer-cursor"
+                [icon]="faFullStar"></fa-icon>
 
             <fa-icon class="operation-bar__reply pointer-cursor" [icon]="faReply"></fa-icon>
             <fa-icon class="operation-bar__trash pointer-cursor" [icon]="faTrash"></fa-icon>

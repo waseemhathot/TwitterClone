@@ -23,6 +23,7 @@ export class TextBoxComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.textArea = this.textAreaRef.nativeElement as HTMLTextAreaElement;
+    this.updateCharacterCount();
   }
 
   postTweet(): void {
@@ -34,7 +35,7 @@ export class TextBoxComponent implements OnInit, AfterViewInit {
 
   updateCharacterCount() {
     this.characterCount = this.textArea.value.length;
-    if (this.textArea.value.length > MAX_CHARACTERS_NUM) {
+    if (this.characterCount > MAX_CHARACTERS_NUM || this.characterCount === 0) {
       this.teweetButtonRef.nativeElement.disabled = true;
     } else {
       this.teweetButtonRef.nativeElement.disabled = false;

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserManagerService } from 'src/app/Login/services/user-manager.service';
-import { UserCredentials } from '../../interfaces/user';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -14,7 +12,7 @@ export class RegisterFormComponent implements OnInit {
   avatarUrl = '';
   password: string;
 
-  constructor(private userManagerService: UserManagerService, private router: Router) { }
+  constructor(private userManagerService: UserManagerService) { }
 
   ngOnInit() {
   }
@@ -26,8 +24,6 @@ export class RegisterFormComponent implements OnInit {
       avatarUrl: this.avatarUrl,
       password: this.password
     })
-    .then(data => {
-      this.router.navigate(['home']);
-    });
+    .catch(_ => alert('registeration failed, please try again'));
   }
 }

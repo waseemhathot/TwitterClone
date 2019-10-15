@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataRetrievalService } from 'src/app/Core/services/data-retrieval.service';
 import { ITweet } from 'src/app/Shared/interfaces/ITweet';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
+import { UserManagerService } from 'src/app/Login/services/user-manager.service';
 
 @Component({
     selector: 'app-home-page',
@@ -12,10 +13,14 @@ export class HomePageComponent implements OnInit, OnDestroy {
     tweetList: ITweet[] = [];
     tweetListSub: Subscription;
 
-    constructor(private dataRetrievalService: DataRetrievalService) {
+    isUserLoggedIn$: Observable<boolean>;
+
+    constructor(private dataRetrievalService: DataRetrievalService, userManagerService: UserManagerService) {
         this.tweetListSub = this.dataRetrievalService.tweetList$.subscribe(data => {
             this.tweetList = data;
         });
+
+        this.isUserLoggedIn$ = userManagerService.isUserLoggedIn$;
     }
 
     ngOnInit() {

@@ -34,13 +34,27 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: calc(0.2em + 0.2vmax);
+    padding: calc(0.4em + 0.2vmax);
     width: 90%;
 }
 
-.user-tweet__username {
+.user-tweet__user-info {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.user-info__username {
     font-size: calc(0.8em + 0.2vmax);
     font-weight: bold;
+    margin: calc(0.1em + 0.1vmax);
+}
+
+.user-info__user-handle {
+    color: rgb(101, 119, 134);
+    margin: calc(0.1em + 0.1vmax);
 }
 
 .user-tweet__text {
