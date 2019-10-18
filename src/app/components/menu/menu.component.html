@@ -21,7 +21,7 @@
             <div class="link__text">Register</div>
         </a>
 
-        <a *ngIf="isUserLoggedIn$ | async" class="menu__link options__option">
+        <a *ngIf="isUserLoggedIn$ | async" (click)="navigateToProfilePage()" class="menu__link options__option">
             <fa-icon class="link-icon" [icon]="faUser"></fa-icon>
             <div class="link__text">Profile</div>
         </a>

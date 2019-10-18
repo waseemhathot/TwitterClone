@@ -42,15 +42,23 @@ export class DataRetrievalService {
             .catch(error => Promise.reject(error));
     }
 
+    async getTweetsFromServerById(id: string): Promise<any> {
+        return await this.http.get(environment.apiUrl + '/members/' + id + '/tweets').toPromise();
+    }
+
+    async getUserFromServerById(id: string): Promise<any> {
+        return await this.http.get(environment.apiUrl + '/members/' + id).toPromise();
+    }
+
     async postTweet(text: string): Promise<any> {
         return await this.http.post(environment.apiUrl + '/tweets', { text }).toPromise().catch(err => console.log(err));
     }
 
-    async deleteTweet(id: string) {
+    async deleteTweet(id: string): Promise<any> {
         return await this.http.delete(environment.apiUrl + '/tweets/' + id).toPromise();
     }
 
-    async toggleStar() {
-
+    async toggleStar(id: string): Promise<any> {
+        return await this.http.post(environment.apiUrl + '/tweets/' + id + '/star-toggle', {}).toPromise();
     }
 }

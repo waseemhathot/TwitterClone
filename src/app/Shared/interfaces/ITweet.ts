@@ -4,6 +4,7 @@ export interface ITweet {
     text: string;
     postDate: string;
     stars: number;
+    starredByMe: boolean;
     id: string;
     userId: string;
     avatarUrl: string;

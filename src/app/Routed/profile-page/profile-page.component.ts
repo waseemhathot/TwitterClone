@@ -1,15 +1,40 @@
 import { Component, OnInit } from '@angular/core';
+import { ITweet } from 'src/app/Shared/interfaces/ITweet';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { DataRetrievalService } from 'src/app/Core/services/data-retrieval.service';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import * as moment from 'moment';
 
 @Component({
-  selector: 'app-profile-page',
-  templateUrl: './profile-page.component.html',
-  styleUrls: ['./profile-page.component.css']
+    selector: 'app-profile-page',
+    templateUrl: './profile-page.component.html',
+    styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
+    faUser = faUser;
+    tweetList: ITweet[] = [];
+    tweetListSub: Subscription;
+    userId: string;
+    showDefaultAvatar = true;
+    registrationDate: string;
+    lastLoginDate: string;
+    userHandle: string;
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+    constructor(private route: ActivatedRoute, private dataRetrievalService: DataRetrievalService) {
+        this.userId = this.route.snapshot.paramMap.get('id');
+
+        this.dataRetrievalService.getTweetsFromServerById(this.userId).then(data => this.tweetList = data);
+
+        this.dataRetrievalService.getUserFromServerById(this.userId).then(data => {
+            this.userHandle = data.userHandle;
+            this.registrationDate = moment(new Date(data.registrationDate)).format('dddd, MMMM Do YYYY, h:mm:ss a');
+            this.lastLoginDate = moment(new Date(data.lastLoginDate)).format('dddd, MMMM Do YYYY, h:mm:ss a');
+        });
+    }
+
+    ngOnInit() { }
+
 
 }

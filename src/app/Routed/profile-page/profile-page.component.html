@@ -1,0 +1,15 @@
+<div class="content">
+    <div class="content__user-profile">
+        <div class="user-profile__user-avatar">
+            <fa-icon *ngIf='showDefaultAvatar' [icon]="faUser"></fa-icon>
+            <img *ngIf='!showDefaultAvatar' [src]='tweet.avatarUrl' alt='failed to load' />
+        </div>
+
+        <div class="user-profile__user-info">
+            <span class="user-info__info-item info-item--bold">{{ userHandle }}</span>
+            <span class="user-info__info-item">joined {{ registrationDate }}</span>
+            <span class="user-info__info-item">Last Login: {{ lastLoginDate }}</span>
+        </div> 
+    </div> 
+    <app-tweet-list [tweetList]="tweetList"></app-tweet-list>
+</div>

@@ -8,7 +8,7 @@ import { RegisterPageComponent } from 'src/app/Routed/register-page/register-pag
 
 const routes: Routes = [
     { path: 'home', component: HomePageComponent },
-    { path: 'profile', component: ProfilePageComponent },
+    { path: 'profile/:id', component: ProfilePageComponent },
     { path: 'login', component: LoginPageComponent },
     { path: 'register', component: RegisterPageComponent },
     { path: 'home', component: HomePageComponent },

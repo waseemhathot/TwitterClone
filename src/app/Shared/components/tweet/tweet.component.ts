@@ -4,6 +4,7 @@ import { DataRetrievalService } from 'src/app/Core/services/data-retrieval.servi
 import { faUser, faReply, faTrash, faStar as faFullStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,28 +19,38 @@ export class TweetComponent implements OnInit {
     faFullStar = faFullStar;
     faTrash = faTrash;
 
-    showDefaultAvatar = false;
-    tweetStarred = false;
+    showTrashOption = false;
+    showReplyOption = false;
+    showDefaultAvatar: boolean;
     dateDiff: string;
 
     @Input() tweet: ITweet;
 
-    constructor(private dataRetrievalService: DataRetrievalService) { }
+    constructor(private dataRetrievalService: DataRetrievalService, private router: Router) { }
 
     ngOnInit() {
+
         if (!this.tweet.avatarUrl) {
             this.showDefaultAvatar = true;
         }
-        this.dateDiff = moment.duration(moment().diff(moment(this.tweet.postDate))).humanize();
+
+        this.dateDiff = moment.duration(moment().diff(moment(new Date(this.tweet.postDate)).format())).humanize();
     }
 
-    toggleStar() {
-        this.tweetStarred = !this.tweetStarred;
-        // this.dataRetrievalService.toggleStar();
+    async toggleStar() {
+
+        const data = await this.dataRetrievalService.toggleStar(this.tweet.id);
+        this.tweet.starredByMe = data.starredByMe;
+        this.tweet.stars = data.stars;
     }
 
     async deleteTweet(): Promise<void> {
+
         await this.dataRetrievalService.deleteTweet(this.tweet.id);
         this.dataRetrievalService.updateTweetsFromServer();
+    }
+
+    navigateToProfile() {
+        this.router.navigate([`/profile/${this.tweet.userId}`]);
     }
 }
