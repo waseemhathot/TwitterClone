@@ -1,10 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ITweet } from '../../interfaces/ITweet';
 import { DataRetrievalService } from 'src/app/Core/services/data-retrieval.service';
 import { faUser, faReply, faTrash, faStar as faFullStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
+import { UserManagerService } from 'src/app/Login/services/user-manager.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { Router } from '@angular/router';
     templateUrl: './tweet.component.html',
     styleUrls: ['./tweet.component.css']
 })
-export class TweetComponent implements OnInit {
+export class TweetComponent implements OnInit, OnDestroy {
     faUser = faUser;
     faReply = faReply;
     faEmptyStar = faStar;
@@ -23,16 +25,31 @@ export class TweetComponent implements OnInit {
     showReplyOption = false;
     showDefaultAvatar: boolean;
     dateDiff: string;
+    userDataSub: Subscription;
 
     @Input() tweet: ITweet;
 
-    constructor(private dataRetrievalService: DataRetrievalService, private router: Router) { }
+    // tslint:disable-next-line
+    constructor(private dataRetrievalService: DataRetrievalService, private userManagerService: UserManagerService, private router: Router) { }
 
     ngOnInit() {
 
         if (!this.tweet.avatarUrl) {
             this.showDefaultAvatar = true;
         }
+
+        this.userDataSub = this.userManagerService.userData$.pipe().subscribe(data => {
+            if (data) {
+                this.showReplyOption = true;
+
+                if (data.user.id === this.tweet.userId) {
+                    this.showTrashOption = true;
+                }
+            } else {
+                this.showTrashOption = false;
+                this.showReplyOption = false;
+            }
+        });
 
         this.dateDiff = moment.duration(moment().diff(moment(new Date(this.tweet.postDate)).format())).humanize();
     }
@@ -52,5 +69,9 @@ export class TweetComponent implements OnInit {
 
     navigateToProfile() {
         this.router.navigate([`/profile/${this.tweet.userId}`]);
+    }
+
+    ngOnDestroy() {
+        this.userDataSub.unsubscribe();
     }
 }

@@ -3,6 +3,7 @@ import { DataRetrievalService } from 'src/app/Core/services/data-retrieval.servi
 import { ITweet } from 'src/app/Shared/interfaces/ITweet';
 import { Subscription, Observable } from 'rxjs';
 import { UserManagerService } from 'src/app/Login/services/user-manager.service';
+import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'app-home-page',
@@ -20,7 +21,14 @@ export class HomePageComponent implements OnInit, OnDestroy {
             this.tweetList = data;
         });
 
-        this.isUserLoggedIn$ = userManagerService.isUserLoggedIn$;
+        this.isUserLoggedIn$ = userManagerService.userData$.pipe(
+            map(data => {
+                if (data) {
+                    return true;
+                }
+                return false;
+            })
+        );
     }
 
     ngOnInit() {

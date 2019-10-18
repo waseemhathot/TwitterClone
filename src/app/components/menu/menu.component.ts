@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import {
     faHome,
@@ -9,7 +9,7 @@ import {
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { UserManagerService } from 'src/app/Login/services/user-manager.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { User } from 'src/app/Login/interfaces/user';
 import { Router } from '@angular/router';
@@ -20,7 +20,7 @@ import { Router } from '@angular/router';
     templateUrl: './menu.component.html',
     styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
     faTwitter = faTwitter;
     faHome = faHome;
     faSignOut = faSignOutAlt;
@@ -30,26 +30,27 @@ export class MenuComponent implements OnInit {
     faUser = faUser;
 
     isUserLoggedIn$: Observable<boolean>;
-    userData$: Observable<User>;
-    userId: string;
+    user: User;
+    userSub: Subscription;
 
     constructor(private userManagerService: UserManagerService, private router: Router) {
-        this.isUserLoggedIn$ = userManagerService.isUserLoggedIn$;
-        this.userData$ = this.userManagerService.userData$.pipe(
+        this.isUserLoggedIn$ = userManagerService.userData$.pipe(
+            map(data => {
+                if (data) {
+                    return true;
+                }
+                return false;
+            })
+        );
+
+        this.userSub = this.userManagerService.userData$.pipe(
             map(data => {
                 if (data) {
                     return data.user;
                 }
                 return null;
             }),
-        );
-        this.userData$.subscribe(v => {
-            if (v) {
-                console.log('here');
-                console.log(v.id);
-                this.userId = v.id;
-            }
-        });
+        ).subscribe(user => this.user = user);
     }
 
     ngOnInit() { }
@@ -61,6 +62,12 @@ export class MenuComponent implements OnInit {
     }
 
     navigateToProfilePage() {
-        this.router.navigate(['profile/' + this.userId]);
+        if (this.user) {
+            this.router.navigate(['profile/' + this.user.id]);
+        }
+    }
+
+    ngOnDestroy() {
+        this.userSub.unsubscribe();
     }
 }
