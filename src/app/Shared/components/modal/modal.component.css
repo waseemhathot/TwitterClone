@@ -1,0 +1,60 @@
+.content {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+}
+
+.modal__content {
+    border-radius: calc(1em + 0.2vmax);
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
+.modal-background {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+}
+
+.--hidden {
+    display: none;
+}
+
+.--displayed {
+    display: initial;
+}
+
+.close-button {
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+    color: var(--twitter-blue-color);
+    outline: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(1em + 0.2vmax);
+    background-color: transparent;
+}
+
+@media (max-width: 500px) {
+   .modal {
+       width: 80%;
+   }
+}

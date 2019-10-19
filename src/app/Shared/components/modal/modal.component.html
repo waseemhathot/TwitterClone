@@ -1,0 +1,13 @@
+<div #modal class="content --hidden">
+    <div  class="modal">
+        <div class="modal__content">
+            <ng-content></ng-content>
+
+            <button (click)="close()" class="close-button" type='button'>
+                <fa-icon [icon]="faTimes"></fa-icon>
+            </button>
+        </div>
+    </div>
+
+    <div (click)="close()" class="modal-background"></div>
+</div>

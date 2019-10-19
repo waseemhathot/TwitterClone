@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
 import { ITweet } from '../../interfaces/ITweet';
 import { DataRetrievalService } from 'src/app/Core/services/data-retrieval.service';
 import { faUser, faReply, faTrash, faStar as faFullStar } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { Router } from '@angular/router';
 import { UserManagerService } from 'src/app/Login/services/user-manager.service';
 import { Subscription } from 'rxjs';
+import { ModalComponent } from '../modal/modal.component';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { Subscription } from 'rxjs';
     templateUrl: './tweet.component.html',
     styleUrls: ['./tweet.component.css']
 })
-export class TweetComponent implements OnInit, OnDestroy {
+export class TweetComponent implements OnInit, OnDestroy, AfterViewInit {
     faUser = faUser;
     faReply = faReply;
     faEmptyStar = faStar;
@@ -26,11 +27,17 @@ export class TweetComponent implements OnInit, OnDestroy {
     showDefaultAvatar: boolean;
     dateDiff: string;
     userDataSub: Subscription;
+    modalRef: ModalComponent;
 
     @Input() tweet: ITweet;
+    @ViewChild('modal', { static: false }) modal: ModalComponent;
 
     // tslint:disable-next-line
     constructor(private dataRetrievalService: DataRetrievalService, private userManagerService: UserManagerService, private router: Router) { }
+
+    ngAfterViewInit() {
+        this.modalRef = this.modal;
+    }
 
     ngOnInit() {
 
@@ -69,6 +76,10 @@ export class TweetComponent implements OnInit, OnDestroy {
 
     navigateToProfile() {
         this.router.navigate([`/profile/${this.tweet.userId}`]);
+    }
+
+    openModal() {
+        this.modalRef.open();
     }
 
     ngOnDestroy() {

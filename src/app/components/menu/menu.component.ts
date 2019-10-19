@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import {
     faHome,
@@ -10,9 +10,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { UserManagerService } from 'src/app/Login/services/user-manager.service';
 import { Observable, Subscription } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { User } from 'src/app/Login/interfaces/user';
 import { Router } from '@angular/router';
+import { ModalComponent } from 'src/app/Shared/components/modal/modal.component';
 
 
 @Component({
@@ -20,7 +21,7 @@ import { Router } from '@angular/router';
     templateUrl: './menu.component.html',
     styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit, OnDestroy {
+export class MenuComponent implements OnInit, OnDestroy, AfterViewInit {
     faTwitter = faTwitter;
     faHome = faHome;
     faSignOut = faSignOutAlt;
@@ -32,6 +33,9 @@ export class MenuComponent implements OnInit, OnDestroy {
     isUserLoggedIn$: Observable<boolean>;
     user: User;
     userSub: Subscription;
+    modalRef: ModalComponent;
+
+    @ViewChild('modal', {static: false}) modal: ModalComponent;
 
     constructor(private userManagerService: UserManagerService, private router: Router) {
         this.isUserLoggedIn$ = userManagerService.userData$.pipe(
@@ -55,6 +59,10 @@ export class MenuComponent implements OnInit, OnDestroy {
 
     ngOnInit() { }
 
+    ngAfterViewInit() {
+        this.modalRef = this.modal;
+    }
+
     openTweetWindow() { }
 
     logout() {
@@ -65,6 +73,10 @@ export class MenuComponent implements OnInit, OnDestroy {
         if (this.user) {
             this.router.navigate(['profile/' + this.user.id]);
         }
+    }
+
+    openModal() {
+        this.modalRef.open();
     }
 
     ngOnDestroy() {

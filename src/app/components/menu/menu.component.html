@@ -31,10 +31,14 @@
             <div class="link__text">Sign Out</div>
         </a>
 
-        <button [disabled]="!(isUserLoggedIn$ | async)" class="menu__tweet-button button" (click)="openTweetWindow()">Tweet</button>
+        <button (click)="openModal()" [disabled]="!(isUserLoggedIn$ | async)" class="menu__tweet-button button" (click)="openTweetWindow()">Tweet</button>
 
-        <button [disabled]="!(isUserLoggedIn$ | async)" class="menu__tweet-icon button" (click)="openTweetWindow()">
+        <button (click)="openModal()" [disabled]="!(isUserLoggedIn$ | async)" class="menu__tweet-icon button" (click)="openTweetWindow()">
             <fa-icon  [icon]="faFeather"></fa-icon>
         </button>
+        
+        <app-modal #modal>
+            <app-text-box></app-text-box>
+        </app-modal>
     </div>
 </div>

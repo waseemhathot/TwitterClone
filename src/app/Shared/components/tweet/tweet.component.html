@@ -25,13 +25,15 @@
                 </div>
             </div>
 
-            <fa-icon *ngIf="showReplyOption" class="operation-bar__reply operation-bar__item pointer-cursor"
+            <fa-icon (click)="openModal()" *ngIf="showReplyOption" class="operation-bar__reply operation-bar__item pointer-cursor"
                 [icon]="faReply"></fa-icon>
 
             <fa-icon *ngIf="showTrashOption" (click)="deleteTweet()"
                 class="operation-bar__trash operation-bar__item pointer-cursor" [icon]="faTrash"></fa-icon>
         </div>
     </div>
-
-
 </div>
+
+<app-modal #modal>  
+    <app-text-box></app-text-box>
+</app-modal>
