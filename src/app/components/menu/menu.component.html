@@ -1,42 +1,45 @@
 <div class="menu">
     <div class="menu__options">
-        <a routerLink="/home" class="menu__link options__option" routerLinkActive="active-link">
+        <a routerLink="/home" class="menu__link" routerLinkActive="active-link">
             <fa-icon class="twitter-icon" [icon]="faTwitter"></fa-icon>
         </a>
 
-        <a routerLink="/home" class="menu__link options__option" routerLinkActive="active-link">
+        <a routerLink="/home" class="menu__link" routerLinkActive="active-link">
             <fa-icon class="link-icon" [icon]="faHome"></fa-icon>
-            <div class="link__text">Home</div>
+            <div class="link__text">{{ 'home' | translate }} </div>
         </a>
 
-        <a *ngIf="!(isUserLoggedIn$ | async)" routerLink="/login" class="menu__link options__option border-right"
+        <a *ngIf="!(isUserLoggedIn$ | async)" routerLink="/login" class="menu__link"
             routerLinkActive="active-link">
             <fa-icon class="link-icon" [icon]="faSignIn"></fa-icon>
-            <div class="link__text">Sign In</div>
+            <div class="link__text">{{ 'signin' | translate }}</div>
         </a>
 
-        <a *ngIf="!(isUserLoggedIn$ | async)" routerLink="/register" class="menu__link options__option"
+        <a *ngIf="!(isUserLoggedIn$ | async)" routerLink="/register" class="menu__link"
             routerLinkActive="active-link">
             <fa-icon class="link-icon" [icon]="faRegister"></fa-icon>
-            <div class="link__text">Register</div>
+            <div class="link__text">{{ 'register' | translate }}</div>
         </a>
 
-        <a *ngIf="isUserLoggedIn$ | async" (click)="navigateToProfilePage()" class="menu__link options__option">
+        <a *ngIf="isUserLoggedIn$ | async" routerLink="/profile" (click)="navigateToProfilePage()"
+            class="menu__link" routerLinkActive="active-link">
             <fa-icon class="link-icon" [icon]="faUser"></fa-icon>
-            <div class="link__text">Profile</div>
+            <div class="link__text">{{ 'profile' | translate }}</div>
         </a>
 
-        <a *ngIf="isUserLoggedIn$ | async" (click)="logout()" class="menu__link options__option">
+        <a *ngIf="isUserLoggedIn$ | async" (click)="logout()" class="menu__link">
             <fa-icon class="link-icon" [icon]="faSignOut"></fa-icon>
-            <div class="link__text">Sign Out</div>
+            <div class="link__text">{{ 'signout' | translate }}</div>
         </a>
 
-        <button (click)="openModal()" [disabled]="!(isUserLoggedIn$ | async)" class="menu__tweet-button button" (click)="openTweetWindow()">Tweet</button>
+        <button (click)="openModal()" [disabled]="!(isUserLoggedIn$ | async)" class="menu__tweet-button button"
+            (click)="openTweetWindow()">Tweet</button>
 
-        <button (click)="openModal()" [disabled]="!(isUserLoggedIn$ | async)" class="menu__tweet-icon button" (click)="openTweetWindow()">
-            <fa-icon  [icon]="faFeather"></fa-icon>
+        <button (click)="openModal()" [disabled]="!(isUserLoggedIn$ | async)" class="menu__tweet-icon button"
+            (click)="openTweetWindow()">
+            <fa-icon [icon]="faFeather"></fa-icon>
         </button>
-        
+
         <app-modal #modal>
             <app-text-box></app-text-box>
         </app-modal>

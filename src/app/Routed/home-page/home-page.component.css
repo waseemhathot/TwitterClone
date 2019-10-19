@@ -5,7 +5,7 @@
 
 .content__text-box {
     width: 100%;
-    border-bottom: calc(0.8em + 0.03vmax) solid rgba(0, 0, 0, 0.1);
+    border-bottom: calc(0.7em + 0.03vmax) solid rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 500px) {

@@ -4,6 +4,9 @@ import { LoginModule } from 'src/app/Login/login.module';
 import { SharedModule } from 'src/app/Shared/shared.module';
 import { RoutedModule } from 'src/app/Routed/routed.module';
 import { CoreModule } from 'src/app/Core/core.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './Routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +26,13 @@ import { HeaderComponent } from './components/header/header.component';
     SharedModule,
     RoutedModule,
     CoreModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -31,4 +41,8 @@ export class AppModule {
   constructor() {
     localStorage.setItem('userData', '{}');
   }
- }
+}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

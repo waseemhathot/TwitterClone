@@ -14,10 +14,7 @@
     align-items: flex-start;
 }
 
-.options__option {
-    padding: calc(0.2em + 0.2vmax);
-    font-size: calc(3em + 0.2vmax);
-}
+
 
 .menu__tweet-button {
     padding: calc(0.8em + 0.2vmax) calc(5em + 0.2vmax);
@@ -83,6 +80,7 @@
 .link-icon {
     font-size: calc(1.3em + 0.2vmax);
     text-align: center;
+    width: calc(1em + 0.2vmax);
 }
 
 .active-link {

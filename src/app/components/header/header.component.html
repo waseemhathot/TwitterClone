@@ -1,3 +1,9 @@
 <div class='content'>
     <ng-content></ng-content>
+    
+    <div class="content__language-selection options__option">
+        <button #languageButton value='en' class="language-selection__language-button border-right active">EN</button>
+        <button #languageButton value='esp' class="language-selection__language-button">ESP</button>
+        <fa-icon class="icon" [icon]="faGlobe"></fa-icon>
+    </div>
 </div>

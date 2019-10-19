@@ -29,8 +29,8 @@ export class ProfilePageComponent implements OnInit {
 
         this.dataRetrievalService.getUserFromServerById(this.userId).then(data => {
             this.userHandle = data.userHandle;
-            this.registrationDate = moment(new Date(data.registrationDate)).format('dddd, MMMM Do YYYY, h:mm:ss a');
-            this.lastLoginDate = moment(new Date(data.lastLoginDate)).format('dddd, MMMM Do YYYY, h:mm:ss a');
+            this.registrationDate = moment(new Date(data.registrationDate)).format('LLL');
+            this.lastLoginDate = moment(new Date(data.lastLoginDate)).format('LLL');
         });
     }
 

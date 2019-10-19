@@ -58,18 +58,16 @@ export class TweetComponent implements OnInit, OnDestroy, AfterViewInit {
             }
         });
 
-        this.dateDiff = moment.duration(moment().diff(moment(new Date(this.tweet.postDate)).format())).humanize();
+        this.dateDiff = moment(new Date(this.tweet.postDate), 'YYYYMMDDSS').fromNow();
     }
 
     async toggleStar() {
-
         const data = await this.dataRetrievalService.toggleStar(this.tweet.id);
         this.tweet.starredByMe = data.starredByMe;
         this.tweet.stars = data.stars;
     }
 
     async deleteTweet(): Promise<void> {
-
         await this.dataRetrievalService.deleteTweet(this.tweet.id);
         this.dataRetrievalService.updateTweetsFromServer();
     }

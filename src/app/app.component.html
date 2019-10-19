@@ -2,10 +2,10 @@
     <app-menu class="container__menu border-right"></app-menu>
 
     <app-header class="container__header border-bottom">
-        <a routerLink="/home" class="header__link" routerLinkActive="active-link">Home</a>
-        <a routerLink="/login" class="header__link" routerLinkActive="active-link">Login</a>
-        <a routerLink="/register" class="header__link" routerLinkActive="active-link">Register</a>
-        <a routerLink="/profile" class="header__link" routerLinkActive="active-link">Profile</a>
+        <a routerLink="/home" class="header__link" routerLinkActive="active-link">{{ 'home' | translate }}</a>
+        <a routerLink="/login" class="header__link" routerLinkActive="active-link">{{ 'signin' | translate }}</a>
+        <a routerLink="/register" class="header__link" routerLinkActive="active-link">{{ 'register' | translate }}</a>
+        <a routerLink="/profile" class="header__link" routerLinkActive="active-link">{{ 'profile' | translate }}</a>
     </app-header>
     
     <div class="container__content">

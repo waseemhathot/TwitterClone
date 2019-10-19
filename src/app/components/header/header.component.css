@@ -4,10 +4,43 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    font-size: calc(1.2em + 0.2vmax);
     font-weight: bold;
     padding: calc(0.5em + 0.2vmax);
     font-family: "Segoe UI";
+}
+
+.content__language-selection {
+    color: black;
+    font-weight: bold;
+    font-size: calc(1em + 0.2vmax);
+    padding: calc(0.5em + 0.2vmax);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.language-selection__language-button {
+    background-color: white;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+
+.border-right {
+    border-right: calc(0.08em + 0.03vmax) solid rgba(0, 0, 0, 0.8);
+}
+
+.icon {
+    font-size: calc(1.3em + 0.2vmax);
+    text-align: center;
+    width: calc(1em + 0.2vmax);
+    margin-left: calc(0.05em + 0.1vmax);
+}
+
+.active {
+    color: var(--twitter-blue-color);
 }
