@@ -9,7 +9,7 @@
     top: 50%;
     width: 50%;
     overflow: hidden;
-    transform: translate(-50%, -50%);
+    transform: translate(calc(-50% + 0.5px), calc(-50% + 0.5px));
 }
 
 .modal__content {

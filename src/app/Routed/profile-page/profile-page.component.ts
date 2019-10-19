@@ -20,7 +20,7 @@ export class ProfilePageComponent implements OnInit {
     registrationDate: string;
     lastLoginDate: string;
     userHandle: string;
-
+    avatarUrl: string;
 
     constructor(private route: ActivatedRoute, private dataRetrievalService: DataRetrievalService) {
         this.userId = this.route.snapshot.paramMap.get('id');
@@ -29,8 +29,14 @@ export class ProfilePageComponent implements OnInit {
 
         this.dataRetrievalService.getUserFromServerById(this.userId).then(data => {
             this.userHandle = data.userHandle;
+            this.avatarUrl = data.avatarUrl;
             this.registrationDate = moment(new Date(data.registrationDate)).format('LLL');
-            this.lastLoginDate = moment(new Date(data.lastLoginDate)).format('LLL');
+            this.lastLoginDate = moment(new Date(data.lastLoginDate), 'YYYYMMDDSS').fromNow();
+
+            if (data.avatarUrl !== '') {
+                this.avatarUrl = data.avatarUrl;
+                this.showDefaultAvatar = false;
+            }
         });
     }
 

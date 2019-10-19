@@ -1,7 +1,7 @@
 <div class="content">
     <div class="content__user-avatar pointer-cursor" (click)="navigateToProfile()">
         <fa-icon *ngIf='showDefaultAvatar' class="link-icon" [icon]="faUser"></fa-icon>
-        <img *ngIf='!showDefaultAvatar' [src]='tweet.avatarUrl' alt='failed to load' />
+        <img *ngIf='!showDefaultAvatar' class="user-avatar__img" [src]='tweet.avatarUrl' alt='failed to load' />
     </div>
 
     <div class="content__user-tweet">
