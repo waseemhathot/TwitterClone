@@ -28,7 +28,7 @@
             <fa-icon (click)="openModal()" *ngIf="showReplyOption" class="operation-bar__reply operation-bar__item pointer-cursor"
                 [icon]="faReply"></fa-icon>
 
-            <fa-icon *ngIf="showTrashOption" (click)="deleteTweet()"
+            <fa-icon *ngIf="showTrashOption" (appConfirmDialog)="deleteTweet()"
                 class="operation-bar__trash operation-bar__item pointer-cursor" [icon]="faTrash"></fa-icon>
         </div>
     </div>

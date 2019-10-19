@@ -8,13 +8,15 @@ import { TextBoxComponent } from './components/text-box/text-box.component';
 import { ModalComponent } from './components/modal/modal.component';
 
 import { AutoGrowDirective } from './directives/auto-grow.directive';
+import { ConfirmDialogDirective } from './directives/confirm-dialog.directive';
 
 @NgModule({
     declarations: [TweetListComponent,
         TweetComponent,
         TextBoxComponent,
         AutoGrowDirective,
-        ModalComponent
+        ModalComponent,
+        ConfirmDialogDirective,
     ],
     imports: [
         CommonModule,
