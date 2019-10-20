@@ -62,9 +62,15 @@ export class TweetComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     async toggleStar() {
-        const data = await this.dataRetrievalService.toggleStar(this.tweet.id);
-        this.tweet.starredByMe = data.starredByMe;
-        this.tweet.stars = data.stars;
+        try {
+            const data = await this.dataRetrievalService.toggleStar(this.tweet.id);
+            this.tweet.starredByMe = data.starredByMe;
+            this.tweet.stars = data.stars;
+        } catch (err) {
+            if (err.status === 401) {
+                this.router.navigate(['/login']);
+            }
+        }
     }
 
     async deleteTweet(): Promise<void> {

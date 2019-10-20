@@ -95,6 +95,7 @@
 
 .stars__count {
     margin: 0 calc(0.05em + 0.2vmax);
+    margin-left: 0;
     font-size: calc(0.8em + 0.2vmax);
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -104,6 +105,7 @@
 
 .stars__icon {
     margin: 0 calc(0.05em + 0.2vmax);
+    margin-right: 0;
     font-size: calc(0.8em + 0.2vmax);
 
 }

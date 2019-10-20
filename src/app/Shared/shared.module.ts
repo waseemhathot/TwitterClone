@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
 
 import { TweetListComponent } from './components/tweet-list/tweet-list.component';
 import { TweetComponent } from './components/tweet/tweet.component';
@@ -21,6 +25,13 @@ import { ConfirmDialogDirective } from './directives/confirm-dialog.directive';
     imports: [
         CommonModule,
         FontAwesomeModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
     ],
     providers: [],
     bootstrap: [],
@@ -31,6 +42,12 @@ import { ConfirmDialogDirective } from './directives/confirm-dialog.directive';
         FontAwesomeModule,
         AutoGrowDirective,
         ModalComponent,
+        TranslateModule,
     ]
 })
 export class SharedModule { }
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
