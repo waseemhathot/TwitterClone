@@ -1,47 +1,46 @@
 <form class="register-form" #registerForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="register-form__user-input">
-        <label for="email">Email</label>
+        <label for="email">{{ 'email' | translate }}</label>
         <input name="email" id="email" type="email" #emailInput="ngModel" [(ngModel)]="email"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,5}$" required />
     </div>
 
     <div class="register-form__error-message">
-        <span [hidden]="!emailInput.errors?.pattern">Please enter a valid
-            email</span>
-        <span [hidden]="!emailInput.errors?.required">Email is required</span>
+        <span [hidden]="!emailInput.errors?.pattern">{{ 'invailed-email-error' | translate }}</span>
+        <span [hidden]="!emailInput.errors?.required">{{ 'email-required-error' | translate }}</span>
     </div>
 
     <div class="register-form__user-input">
-        <label for="username">username</label>
+        <label for="username">{{ 'username' | translate }}</label>
         <input name="username" id="username" type="text" #usernameInput="ngModel" [(ngModel)]="username"
-            pattern="[A-Za-z0-9]{5,14}$" required />
+            pattern="^[A-Za-z0-9_-]{3,16}$" required />
     </div>
 
     <div class="register-form__error-message">
-        <span [hidden]="!usernameInput.errors?.pattern">Please enter a valid
-            username</span>
-        <span [hidden]="!usernameInput.errors?.required">Username is required</span>
+        <span [hidden]="!usernameInput.errors?.pattern">{{ 'invalid-username-error' | translate }}</span>
+        <span [hidden]="!usernameInput.errors?.required">{{ 'username-required-error' | translate }}</span>
     </div>
 
     <div class="register-form__user-input">
-        <label for="avatarUrl">avatarUrl</label>
+        <label for="avatarUrl">{{ 'avatar-url' | translate }}</label>
         <input name="avatarUrl" id="avatarUrl" type="text" #avatarUrlInput="ngModel" [(ngModel)]="avatarUrl"
-            pattern="(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$"/>
+            pattern="(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$" />
     </div>
 
     <div class="register-form__error-message">
-        <span [hidden]="!avatarUrlInput.errors?.pattern">Please enter a valid
-            avatarUrl</span>
+        <span [hidden]="!avatarUrlInput.errors?.pattern">{{ 'invalid-url-error' | translate }}</span>
     </div>
 
     <div class="register-form__user-input">
-        <label for="password">Password</label>
-        <input name="password" id="password" type="password" #passwordInput="ngModel" [(ngModel)]="password" required />
+        <label for="password">{{ 'password' | translate }}</label>
+        <input name="password" id="password" type="password" #passwordInput="ngModel" [(ngModel)]="password"
+            pattern="^([a-zA-Z0-9@*#]{8,15})$" required />
     </div>
 
     <div class="register-form__error-message">
-        <span [hidden]="!passwordInput.errors?.required">Password is required</span>
+        <span [hidden]="!passwordInput.errors?.pattern">{{ 'invalid-password-error' | translate }}</span>
+        <span [hidden]="!passwordInput.errors?.required">{{ 'password-required-error' | translate }}</span>
     </div>
 
-    <button [disabled]="!registerForm.valid" class="register-form__submit-button">Register</button>
+    <button [disabled]="!registerForm.valid" class="register-form__submit-button">{{ 'register' | translate }}</button>
 </form>

@@ -5,6 +5,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from 'src/app/Shared/shared.module';
 
 @NgModule({
     declarations: [LoginFormComponent, RegisterFormComponent, ],
@@ -12,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
         CommonModule,
         FormsModule,
         HttpClientModule,
+        SharedModule,
     ],
     providers: [
         UserManagerService,

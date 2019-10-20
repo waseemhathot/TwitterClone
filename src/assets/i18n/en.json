@@ -4,5 +4,16 @@
     "signin": "Sign In",
     "signout": "Sign Out",
     "register": "Register",
-    "signin-welcome-text": "Login and see what's happening in the world!"
+    "email": "email",
+    "password": "password",
+    "avatar-url": "Avatar URL",
+    "username": "Username",
+    "signin-welcome-text": "Login and see what's happening in the world!",
+    "invalid-email-error": "Please enter a valid email",
+    "email-required-error": "Email is required",
+    "invalid-password-error": "Invalid Password, password must be atleast 8 characters and at most 15 characters",
+    "password-required-error": "Password is required",
+    "invalid-url-error": "Please enter a valid url",
+    "invalid-username-error": "Invalid username, username should be atleast 3 characters and at most 16 characters",
+    "username-required-error": "Username is required"
 }

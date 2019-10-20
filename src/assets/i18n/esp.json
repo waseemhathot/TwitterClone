@@ -4,5 +4,16 @@
     "signin": "Iniciar Sesión",
     "signout": "Cerrar Sesión",
     "register": "Registro",
-    "signin-welcome-text": "¡Inicia sesión y mira lo que está sucediendo en el mundo!"
+    "email": "correo electrónico",
+    "password": "contraseña",
+    "avatar-url": "URL del avatar",
+    "username": "Nombre de usuario",
+    "signin-welcome-text": "¡Inicia sesión y mira lo que está sucediendo en el mundo!",
+    "invalid-email-error": "Por favor introduzca una dirección de correo electrónico válida",
+    "email-required-error": "correo electronico es requerido",
+    "invalid-password-error": "Contraseña no válida, la contraseña debe tener al menos 8 caracteres y como máximo 15 caracteres",
+    "password-required-error": "se requiere contraseña",
+    "invalid-url-error": "Por favor introduzca un URL válido",
+    "invalid-username-error": "Nombre de usuario no válido, el nombre de usuario debe tener al menos 3 caracteres y como máximo 16 caracteres",
+    "username-required-error": "Se requiere nombre de usuario"
 }
