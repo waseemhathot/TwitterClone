@@ -78,6 +78,15 @@
     background-color: rgba(56, 161, 243, 0.2);
 }
 
+.animation__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 500px){
     .login-form__error-message{
         width: 100%;

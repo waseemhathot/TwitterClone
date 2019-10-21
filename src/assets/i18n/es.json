@@ -19,5 +19,8 @@
     "password-required-error": "se requiere contraseña",
     "invalid-url-error": "Por favor introduzca un URL válido",
     "invalid-username-error": "Nombre de usuario no válido, el nombre de usuario debe tener al menos 3 caracteres y como máximo 16 caracteres",
-    "username-required-error": "Se requiere nombre de usuario"
+    "username-required-error": "Se requiere nombre de usuario",
+    "signin-failed-error": "El inicio de sesión falló. Por favor intenta de nuevo!",
+    "register-failed-error": "Registro fallido, por favor intente nuevamente!"
+
 }

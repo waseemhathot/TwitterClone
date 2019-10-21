@@ -1,4 +1,4 @@
-<form class="register-form" #registerForm="ngForm" (ngSubmit)="onSubmit()">
+<form class="register-form" #registerForm="ngForm" *ngIf="showRegister" (ngSubmit)="onSubmit()">
     <div class="register-form__user-input">
         <label for="email">{{ 'email' | translate }}</label>
         <input name="email" id="email" type="email" #emailInput="ngModel" [(ngModel)]="email"
@@ -8,6 +8,7 @@
     <div class="register-form__error-message">
         <span [hidden]="!emailInput.errors?.pattern">{{ 'invailed-email-error' | translate }}</span>
         <span [hidden]="!emailInput.errors?.required">{{ 'email-required-error' | translate }}</span>
+        <span *ngIf="showFailMessage">{{ 'register-failed-error' | translate }}</span>
     </div>
 
     <div class="register-form__user-input">
@@ -44,3 +45,8 @@
 
     <button [disabled]="!registerForm.valid" class="register-form__submit-button">{{ 'register' | translate }}</button>
 </form>
+
+
+<div class="animation__container" *ngIf="!showRegister">
+    <app-loading-animation class="loading-animation"></app-loading-animation>
+</div>

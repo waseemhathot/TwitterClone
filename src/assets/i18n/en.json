@@ -19,5 +19,8 @@
     "password-required-error": "Password is required",
     "invalid-url-error": "Please enter a valid url",
     "invalid-username-error": "Invalid username, username should be atleast 3 characters and at most 16 characters",
-    "username-required-error": "Username is required"
+    "username-required-error": "Username is required",
+    "signin-failed-error": "Sign in failed, please try again!",
+    "register-failed-error": "Register failed, please try again!"
+
 }

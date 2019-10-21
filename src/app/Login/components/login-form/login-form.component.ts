@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { UserManagerService } from 'src/app/Login/services/user-manager.service';
-import { Router } from '@angular/router';
-import { ModalComponent } from 'src/app/Shared/components/modal/modal.component';
 
 @Component({
     selector: 'app-login-form',
@@ -12,8 +10,8 @@ export class LoginFormComponent implements OnInit {
 
     email: string;
     password: string;
-
-    @ViewChild('modal', { static: false }) modal: ModalComponent;
+    showSignIn = true;
+    showFailMessage = false;
 
     constructor(private userManagerService: UserManagerService) { }
 
@@ -21,9 +19,14 @@ export class LoginFormComponent implements OnInit {
     }
 
     async onSubmit() {
-        this.userManagerService.login(this.email, this.password)
+        this.showSignIn = false;
+        this.userManagerService.login(this.email, this.password).then(_ => {
+            this.showSignIn = true;
+            this.showFailMessage = false;
+        })
         .catch(_ => {
-            alert('Login failed, please try again');
+            this.showFailMessage = true;
+            this.showSignIn = true;
         });
     }
 }

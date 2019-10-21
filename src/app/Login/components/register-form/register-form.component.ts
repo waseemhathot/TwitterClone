@@ -11,6 +11,8 @@ export class RegisterFormComponent implements OnInit {
   username: string;
   avatarUrl = '';
   password: string;
+  showRegister = true;
+  showFailMessage = false;
 
   constructor(private userManagerService: UserManagerService) { }
 
@@ -18,12 +20,19 @@ export class RegisterFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.showRegister = false;
     this.userManagerService.register({
       email: this.email,
       userHandle: this.username,
       avatarUrl: this.avatarUrl,
       password: this.password
+    }).then(_ => {
+      this.showRegister = true;
+      this.showFailMessage = false;
     })
-    .catch(_ => alert('registeration failed, please try again'));
+    .catch(_ => {
+      this.showFailMessage = true;
+      this.showRegister = true;
+    });
   }
 }

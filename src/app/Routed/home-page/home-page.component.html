@@ -6,6 +6,6 @@
     <app-tweet-list [tweetList]="tweetList"></app-tweet-list>
 </div>
 
-<div class="animation__container">
-    <app-loading-animation class="loading-animation" *ngIf="!tweetsLoaded"></app-loading-animation>
+<div class="animation__container" *ngIf="!tweetsLoaded">
+    <app-loading-animation class="loading-animation"></app-loading-animation>
 </div>

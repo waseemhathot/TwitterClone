@@ -1,4 +1,4 @@
-<div class="content" [ngClass]="{ '--infinite-loading-animation': !tweetPosted }">
+<div class="content" [ngClass]="{ '--infinite-loading-animation': !tweetPosted && !userLoaded }">
     <div class="content__tweet-area">
         <div class="tweet-area__user-avatar">
             <fa-icon class="link-icon" [icon]="faUser"></fa-icon>

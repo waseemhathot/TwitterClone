@@ -30,7 +30,8 @@ export class TextBoxComponent implements OnInit {
         this.tweetPosted = false;
 
         this.dataRetrievalService.postTweet(this.textAreaValue).then(_ => {
-            setTimeout(() => {
+
+            setTimeout(() => { // delay for smooth animation
                 this.showOperationBar = true;
                 this.tweetPosted = true;
                 this.dataRetrievalService.updateTweetsFromServer();

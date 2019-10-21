@@ -23,6 +23,7 @@ export class ProfilePageComponent implements OnInit {
     userHandle: string;
     avatarUrl: string;
     tweetsLoaded = false;
+    userLoaded = false;
 
     constructor(private route: ActivatedRoute, private dataRetrievalService: DataRetrievalService, private translate: TranslateService) {
 
@@ -31,6 +32,7 @@ export class ProfilePageComponent implements OnInit {
         this.dataRetrievalService.getTweetsFromServerById(this.userId).then(data => {
             this.tweetList = data;
             this.tweetsLoaded = true;
+            this.userLoaded = true;
         });
 
         this.dataRetrievalService.getUserFromServerById(this.userId).then(data => {

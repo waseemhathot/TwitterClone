@@ -1,4 +1,4 @@
-<form class="login-form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+<form class="login-form" #loginForm="ngForm" *ngIf="showSignIn" (ngSubmit)="onSubmit()">
     <div class="login-form__user-input">
         <label for="email">{{ 'email' | translate }}</label>
         <input name="email" id="email" type="email" #emailInput="ngModel" [(ngModel)]="email"
@@ -8,6 +8,7 @@
     <div class="login-form__error-message">
         <span [hidden]="!emailInput.errors?.pattern">{{ 'invalid-email-error' | translate }}</span>
         <span [hidden]="!emailInput.errors?.required">{{ 'email-required-error' | translate }}</span>
+        <span *ngIf="showFailMessage && emailInput.pristine ">{{ 'signin-failed-error' | translate }}</span>
     </div>
 
     <div class="login-form__user-input">
@@ -17,12 +18,13 @@
 
     <div class="login-form__error-message">
         <span [hidden]="!passwordInput.errors?.required">{{ 'password-required-error' | translate }}</span>
+        <span *ngIf="showFailMessage && passwordInput.pristine ">{{ 'signin-failed-error' | translate }}</span>
     </div>
 
     <button [disabled]="!loginForm.valid" class="login-form__submit-button">{{ 'signin' | translate }}</button>
 </form>
 
 
-<app-modal #modal>
-    <app-loading-animation></app-loading-animation>
-</app-modal>
+<div class="animation__container" *ngIf="!showSignIn">
+    <app-loading-animation class="loading-animation"></app-loading-animation>
+</div>
