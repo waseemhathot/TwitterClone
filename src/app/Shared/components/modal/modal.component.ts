@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -6,34 +6,26 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnInit, AfterViewInit {
+export class ModalComponent implements OnInit {
 
   faTimes = faTimes;
 
-  @ViewChild('modal', {static: false}) modal: ElementRef;
-  @ViewChild('modalBackground', {static: false}) modalBackground: ElementRef;
-
   modalElement: HTMLElement;
   modalBackgroundElement: HTMLElement;
+  displayModal = false;
 
-  constructor(private renderer: Renderer2) { }
+  constructor() { }
 
   ngOnInit() {
 
   }
 
-  ngAfterViewInit() {
-    this.modalElement = this.modal.nativeElement;
-  }
-
   open() {
-    this.renderer.removeClass(this.modalElement, '--hidden');
-    this.renderer.addClass(this.modalElement, '--displayed');
+    this.displayModal = true;
   }
 
   close() {
-    this.renderer.removeClass(this.modalElement, '--displayed');
-    this.renderer.addClass(this.modalElement, '--hidden');
+    this.displayModal = false;
   }
 
 }

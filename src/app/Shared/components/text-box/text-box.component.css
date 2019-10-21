@@ -90,7 +90,14 @@
     100% { width: 0%; }
 }
 
+@-webkit-keyframes loadingBorderAnimation {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 0%; }
+}
+
 .--loading-animation::before {
+    -webkit-animation: loadingBorderAnimation 1s;
     animation: loadingBorderAnimation 1s;
     border-top: calc(0.2em + 0.1vmax) solid var(--twitter-blue-color);
     box-sizing: inherit;

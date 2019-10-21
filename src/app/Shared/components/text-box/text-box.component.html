@@ -1,15 +1,17 @@
-<div class="content" #contentContainer>
+<div class="content" [ngClass]="{ '--infinite-loading-animation': !tweetPosted }">
     <div class="content__tweet-area">
         <div class="tweet-area__user-avatar">
             <fa-icon class="link-icon" [icon]="faUser"></fa-icon>
         </div>
 
-        <textarea class="tweet-area__text-box" #textArea (keyup)="updateCharacterCount()" appAutoGrow="55"
+        <textarea class="tweet-area__text-box" [(ngModel)]="textAreaValue" (keyup)="updateCharacterCount()" appAutoGrow="55"
             [placeholder]="'text-box-placeholder' | translate"></textarea>
     </div>
 
     <div class="content__operation-bar" *ngIf="showOperationBar">
         <span class="operation-bar__character-limit">{{ characterCount }} / 240</span>
-        <button class="operation-bar__tweet-button" (click)='postTweet()' #tweetButton>Tweet</button>
+        <button class="operation-bar__tweet-button" (click)='postTweet()'
+            [disabled]="characterCount > maxCharactersAllowed|| characterCount === 0">Tweet
+        </button>
     </div>
 </div>

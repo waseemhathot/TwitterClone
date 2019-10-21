@@ -4,7 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 import { TweetListComponent } from './components/tweet-list/tweet-list.component';
 import { TweetComponent } from './components/tweet/tweet.component';
 import { TextBoxComponent } from './components/text-box/text-box.component';
@@ -26,6 +26,7 @@ import { LoadingAnimationComponent } from './components/loading-animation/loadin
     imports: [
         CommonModule,
         FontAwesomeModule,
+        FormsModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
