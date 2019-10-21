@@ -19,6 +19,7 @@ export class TextBoxComponent implements OnInit {
     tweetPosted = true;
     textAreaValue = '';
     maxCharactersAllowed: number = MAX_CHARACTERS_NUM;
+    avatarUrl: string;
 
     constructor(private dataRetrievalService: DataRetrievalService) {}
 

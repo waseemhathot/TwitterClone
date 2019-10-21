@@ -1,6 +1,7 @@
 <div class="content" [ngClass]="{ '--infinite-loading-animation': !tweetPosted && !userLoaded }">
     <div class="content__tweet-area">
         <div class="tweet-area__user-avatar">
+            <!-- <img class="user-avatar__img" *ngIf='!showDefaultAvatar' [src]='avatarUrl' alt='failed to load' /> -->
             <fa-icon class="link-icon" [icon]="faUser"></fa-icon>
         </div>
 

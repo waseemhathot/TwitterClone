@@ -8,7 +8,7 @@
     <div class="register-form__error-message">
         <span [hidden]="!emailInput.errors?.pattern">{{ 'invailed-email-error' | translate }}</span>
         <span [hidden]="!emailInput.errors?.required">{{ 'email-required-error' | translate }}</span>
-        <span *ngIf="showFailMessage">{{ 'register-failed-error' | translate }}</span>
+        <span *ngIf="showFailMessage && emailInput.pristine ">{{ 'register-failed-error' | translate }}</span>
     </div>
 
     <div class="register-form__user-input">
