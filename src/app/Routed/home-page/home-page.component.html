@@ -1,7 +1,11 @@
-<div class="content">
+<div class="content" *ngIf="tweetsLoaded">
     <div *ngIf="isUserLoggedIn$ | async" class="content__text-box">
         <app-text-box></app-text-box>
     </div>
-    
+
     <app-tweet-list [tweetList]="tweetList"></app-tweet-list>
+</div>
+
+<div class="animation__container">
+    <app-loading-animation class="loading-animation" *ngIf="!tweetsLoaded"></app-loading-animation>
 </div>

@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { UserManagerService } from 'src/app/Login/services/user-manager.service';
 import { Router } from '@angular/router';
+import { ModalComponent } from 'src/app/Shared/components/modal/modal.component';
 
 @Component({
     selector: 'app-login-form',
@@ -11,6 +12,8 @@ export class LoginFormComponent implements OnInit {
 
     email: string;
     password: string;
+
+    @ViewChild('modal', { static: false }) modal: ModalComponent;
 
     constructor(private userManagerService: UserManagerService) { }
 

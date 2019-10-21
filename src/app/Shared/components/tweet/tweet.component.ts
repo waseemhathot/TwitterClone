@@ -6,8 +6,9 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
 import { UserManagerService } from 'src/app/Login/services/user-manager.service';
-import { Subscription } from 'rxjs';
+import { Subscription, BehaviorSubject, Observable } from 'rxjs';
 import { ModalComponent } from '../modal/modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class TweetComponent implements OnInit, OnDestroy, AfterViewInit {
     @ViewChild('modal', { static: false }) modal: ModalComponent;
 
     // tslint:disable-next-line
-    constructor(private dataRetrievalService: DataRetrievalService, private userManagerService: UserManagerService, private router: Router) { }
+    constructor(private dataRetrievalService: DataRetrievalService, private userManagerService: UserManagerService, private router: Router, private translate: TranslateService) { }
 
     ngAfterViewInit() {
         this.modalRef = this.modal;
@@ -58,7 +59,7 @@ export class TweetComponent implements OnInit, OnDestroy, AfterViewInit {
             }
         });
 
-        this.dateDiff = moment(new Date(this.tweet.postDate), 'YYYYMMDDSS').fromNow();
+        this.dateDiff = moment(new Date(this.tweet.postDate), 'YYYYMMDDSS').locale(this.translate.currentLang).fromNow();
     }
 
     async toggleStar() {

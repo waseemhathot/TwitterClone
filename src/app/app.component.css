@@ -1,3 +1,4 @@
+
 .container{
     width: 100%;
     min-height: 100vh;
@@ -6,6 +7,7 @@
     grid-template-columns: 2.78fr 9fr;
     grid-template-rows: 10vh 9fr;
     position: relative;
+    background-color: var(--app-background-color);
 }
 
 .container__content{ 
@@ -27,6 +29,7 @@
     z-index: 1;
     top: 0; 
     height: 10vh;
+    overflow: hidden;
     background-color: var(--app-background-color);
 }
 
@@ -34,7 +37,7 @@
     display: none;
     outline: none;
     text-decoration: none;
-    color: black;
+    color: var(--app-text-color);
     font-size: calc(1em + 0.2vmax);
 }
 
@@ -43,11 +46,11 @@
 }
 
 .border-right {
-    border-right: calc(0.03em + 0.03vmax) solid rgba(0, 0, 0, 0.3);
+    border-right: calc(0.03em + 0.03vmax) solid var(--app-border-color);
 }
 
 .border-bottom {
-    border-bottom: calc(0.03em + 0.03vmax) solid rgba(0, 0, 0, 0.3);
+    border-bottom: calc(0.03em + 0.03vmax) solid var(--app-border-color);
 }
 
 

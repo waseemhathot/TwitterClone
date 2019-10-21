@@ -21,3 +21,8 @@
 
     <button [disabled]="!loginForm.valid" class="login-form__submit-button">{{ 'signin' | translate }}</button>
 </form>
+
+
+<app-modal #modal>
+    <app-loading-animation></app-loading-animation>
+</app-modal>

@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" *ngIf="tweetsLoaded">
     <div class="content__user-profile">
         <div class="user-profile__user-avatar">
             <fa-icon *ngIf='showDefaultAvatar' [icon]="faUser"></fa-icon>
@@ -7,9 +7,13 @@
 
         <div class="user-profile__user-info">
             <span class="user-info__info-item info-item--bold">{{ userHandle }}</span>
-            <span class="user-info__info-item">Joined {{ registrationDate }}</span>
-            <span class="user-info__info-item">Logged in {{ lastLoginDate }}</span>
-        </div> 
-    </div> 
+            <span class="user-info__info-item">{{ 'joined' | translate }} {{ registrationDate }}</span>
+            <span class="user-info__info-item">{{ 'signed-in' | translate }} {{ lastLoginDate }}</span>
+        </div>
+    </div>
     <app-tweet-list [tweetList]="tweetList"></app-tweet-list>
+</div>
+
+<div class="animation__container">
+    <app-loading-animation class="loading-animation" *ngIf="!tweetsLoaded"></app-loading-animation>
 </div>

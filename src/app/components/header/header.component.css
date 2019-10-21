@@ -24,14 +24,15 @@
 }
 
 .language-selection__language-button {
-    background-color: white;
+    background-color: var(--app-background-color);
+    color: var(--app-text-color);
     border: none;
     outline: none;
     font-weight: bold;
 }
 
 .border-right {
-    border-right: calc(0.08em + 0.03vmax) solid rgba(0, 0, 0, 0.8);
+    border-right: calc(0.08em + 0.03vmax) solid var(--app-text-color);
 }
 
 .icon {
@@ -39,6 +40,7 @@
     text-align: center;
     width: calc(1em + 0.2vmax);
     margin-left: calc(0.05em + 0.1vmax);
+    color: var(--app-text-color);
 }
 
 .active {

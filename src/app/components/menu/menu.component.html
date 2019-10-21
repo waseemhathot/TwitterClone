@@ -9,20 +9,18 @@
             <div class="link__text">{{ 'home' | translate }} </div>
         </a>
 
-        <a *ngIf="!(isUserLoggedIn$ | async)" routerLink="/login" class="menu__link"
-            routerLinkActive="active-link">
+        <a *ngIf="!(isUserLoggedIn$ | async)" routerLink="/login" class="menu__link" routerLinkActive="active-link">
             <fa-icon class="link-icon" [icon]="faSignIn"></fa-icon>
             <div class="link__text">{{ 'signin' | translate }}</div>
         </a>
 
-        <a *ngIf="!(isUserLoggedIn$ | async)" routerLink="/register" class="menu__link"
-            routerLinkActive="active-link">
+        <a *ngIf="!(isUserLoggedIn$ | async)" routerLink="/register" class="menu__link" routerLinkActive="active-link">
             <fa-icon class="link-icon" [icon]="faRegister"></fa-icon>
             <div class="link__text">{{ 'register' | translate }}</div>
         </a>
 
-        <a *ngIf="isUserLoggedIn$ | async" routerLink="/profile" (click)="navigateToProfilePage()"
-            class="menu__link" routerLinkActive="active-link">
+        <a *ngIf="isUserLoggedIn$ | async" routerLink="/profile" (click)="navigateToProfilePage()" class="menu__link"
+            routerLinkActive="active-link">
             <fa-icon class="link-icon" [icon]="faUser"></fa-icon>
             <div class="link__text">{{ 'profile' | translate }}</div>
         </a>
@@ -31,6 +29,15 @@
             <fa-icon class="link-icon" [icon]="faSignOut"></fa-icon>
             <div class="link__text">{{ 'signout' | translate }}</div>
         </a>
+
+        <div class="menu__switch-container">
+            <label class="switch">
+                <input type="checkbox" (click)="toggleTheme()" checked>
+                <span class="slider round"></span>
+            </label>
+
+            <div class="switch-text">{{ 'theme' | translate }}</div>
+        </div>
 
         <button (click)="openModal()" [disabled]="!(isUserLoggedIn$ | async)" class="menu__tweet-button button"
             (click)="openTweetWindow()">Tweet</button>

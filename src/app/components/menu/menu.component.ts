@@ -7,6 +7,7 @@ import {
     faUserPlus,
     faFeatherAlt,
     faUser,
+    faAdjust,
 } from '@fortawesome/free-solid-svg-icons';
 import { UserManagerService } from 'src/app/Login/services/user-manager.service';
 import { Observable, Subscription } from 'rxjs';
@@ -14,6 +15,7 @@ import { map } from 'rxjs/operators';
 import { User } from 'src/app/Login/interfaces/user';
 import { Router } from '@angular/router';
 import { ModalComponent } from 'src/app/Shared/components/modal/modal.component';
+import { ThemeService } from 'src/app/Core/services/theme.service';
 
 
 @Component({
@@ -29,15 +31,17 @@ export class MenuComponent implements OnInit, OnDestroy, AfterViewInit {
     faRegister = faUserPlus;
     faFeather = faFeatherAlt;
     faUser = faUser;
+    faAdjust = faAdjust;
 
     isUserLoggedIn$: Observable<boolean>;
     user: User;
     userSub: Subscription;
     modalRef: ModalComponent;
 
-    @ViewChild('modal', {static: false}) modal: ModalComponent;
+    @ViewChild('modal', { static: false }) modal: ModalComponent;
 
-    constructor(private userManagerService: UserManagerService, private router: Router) {
+    constructor(private userManagerService: UserManagerService, private router: Router, private themeService: ThemeService) {
+
         this.isUserLoggedIn$ = userManagerService.userData$.pipe(
             map(data => {
                 if (data) {
@@ -77,6 +81,10 @@ export class MenuComponent implements OnInit, OnDestroy, AfterViewInit {
 
     openModal() {
         this.modalRef.open();
+    }
+
+    toggleTheme() {
+        this.themeService.toggleTheme();
     }
 
     ngOnDestroy() {

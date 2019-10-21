@@ -24,7 +24,7 @@
     <div class="register-form__user-input">
         <label for="avatarUrl">{{ 'avatar-url' | translate }}</label>
         <input name="avatarUrl" id="avatarUrl" type="text" #avatarUrlInput="ngModel" [(ngModel)]="avatarUrl"
-            pattern="(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$" />
+            pattern="^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$" />
     </div>
 
     <div class="register-form__error-message">

@@ -13,12 +13,13 @@ import { map } from 'rxjs/operators';
 export class HomePageComponent implements OnInit, OnDestroy {
     tweetList: ITweet[] = [];
     tweetListSub: Subscription;
-
+    tweetsLoaded = false;
     isUserLoggedIn$: Observable<boolean>;
 
     constructor(private dataRetrievalService: DataRetrievalService, userManagerService: UserManagerService) {
         this.tweetListSub = this.dataRetrievalService.tweetList$.subscribe(data => {
             this.tweetList = data;
+            this.tweetsLoaded = true;
         });
 
         this.isUserLoggedIn$ = userManagerService.userData$.pipe(

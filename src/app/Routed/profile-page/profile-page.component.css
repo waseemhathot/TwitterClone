@@ -1,16 +1,16 @@
 .content {
     width: 100%;
     height: 100%;
+    color: var(--app-text-color);
 }
 
 .content__user-profile {
     padding: calc(1em + 0.2vmax);
-    border-bottom: calc(0.4em + 0.03vmax) solid rgba(0, 0, 0, 0.1);
+    border-bottom: calc(0.7em + 0.03vmax) solid var(--app-border-color);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-
 }
 
 .user-profile__user-info {
@@ -31,7 +31,7 @@
     max-width: calc(1em + 0.2vmax);
     max-height: calc(1.3em + 0.2vmax);
     font-size: calc(2.5em + 0.2vmax);
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--app-border-color);
     color: rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     display: flex;
@@ -52,4 +52,13 @@
 
 .info-item--bold { 
     font-weight: bold;
+}
+
+.animation__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

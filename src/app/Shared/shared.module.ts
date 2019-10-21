@@ -5,7 +5,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 
-
 import { TweetListComponent } from './components/tweet-list/tweet-list.component';
 import { TweetComponent } from './components/tweet/tweet.component';
 import { TextBoxComponent } from './components/text-box/text-box.component';
@@ -13,6 +12,7 @@ import { ModalComponent } from './components/modal/modal.component';
 
 import { AutoGrowDirective } from './directives/auto-grow.directive';
 import { ConfirmDialogDirective } from './directives/confirm-dialog.directive';
+import { LoadingAnimationComponent } from './components/loading-animation/loading-animation.component';
 
 @NgModule({
     declarations: [TweetListComponent,
@@ -21,6 +21,7 @@ import { ConfirmDialogDirective } from './directives/confirm-dialog.directive';
         AutoGrowDirective,
         ModalComponent,
         ConfirmDialogDirective,
+        LoadingAnimationComponent,
     ],
     imports: [
         CommonModule,
@@ -42,6 +43,7 @@ import { ConfirmDialogDirective } from './directives/confirm-dialog.directive';
         FontAwesomeModule,
         AutoGrowDirective,
         ModalComponent,
+        LoadingAnimationComponent,
         TranslateModule,
     ]
 })

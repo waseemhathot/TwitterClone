@@ -371,17 +371,34 @@ textarea {
     padding: 0.2em 0;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--app-text-color);
+}
+
+/* end of reset browser style*/
+
 * {
     box-sizing: border-box;
     font-family: "Segoe UI";
 }
 
+html {
+    overflow-y: scroll;
+}
+
 :root {
     --twitter-blue-color: #38A1F3;
     --app-background-color: white;
+    --app-text-color: black;
     --form-error-color: rgb(224, 36, 94);
-}
-
-html {
-    overflow-y: scroll;
+    --app-border-color: rgba(0, 0, 0, 0.3);
+    --app-input-color: rgba(0, 0, 0, 0.05);
 }

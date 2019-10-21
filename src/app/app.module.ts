@@ -30,10 +30,6 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor() {
-    localStorage.setItem('userData', '{}');
-  }
-}
+export class AppModule {}
 
 

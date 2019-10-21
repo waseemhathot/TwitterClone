@@ -19,15 +19,20 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.addEventListenersToButtons(this.languageButtons.toArray());
+        this.initButtons(this.languageButtons.toArray());
     }
 
-    addEventListenersToButtons(buttons: ElementRef[]) {
+    initButtons(buttons: ElementRef[]) {
         for (const button of buttons) {
+            if (button.nativeElement.value === this.translate.currentLang) {
+                this.renderer.addClass(button.nativeElement, 'active');
+            }
+
             button.nativeElement.addEventListener('click', (event: Event) => {
                 this.removeActiveClassFromButtons(buttons);
                 this.renderer.addClass(event.target, 'active');
                 this.translate.use(button.nativeElement.value);
+                localStorage.setItem('language', button.nativeElement.value);
             });
         }
     }
