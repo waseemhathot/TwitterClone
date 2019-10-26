@@ -51,7 +51,7 @@ export class DataRetrievalService {
     }
 
     async postTweet(text: string): Promise<any> {
-        return await this.http.post(environment.apiUrl + '/tweets', { text }).toPromise().catch(err => console.log(err));
+        return await this.http.post(environment.apiUrl + '/tweets', { text }).toPromise();
     }
 
     async deleteTweet(id: string): Promise<any> {

@@ -53,7 +53,4 @@ export class UserManagerService {
         localStorage.setItem('userData', JSON.stringify(data));
         this.router.navigate(['home']);
     }
-
-    isUserLoggedin(): boolean {
-    }
 }
